@@ -16,7 +16,7 @@
         background-size: cover; /* Tło wypełnia całą stronę logowania */
     }
 </style>
-    
+
     <meta charset="utf-8">
     <meta name="theme-color" content="#FFFFFF">
     <meta name="viewport" content="width=device-width">
@@ -132,7 +132,7 @@
             color: #131419;
         }
 
-        
+
         @supports (-webkit-touch-callout: none) {
             .dzit {
                 margin-bottom: 1.0rem;
@@ -336,7 +336,7 @@
                 <br>
                 <br>
                 <br>
-                
+
                 <img src="images/aa008_change_password_blue.svg" alt="Change Password" class="Login_changePasswordIcon">
             </div>
 
@@ -357,45 +357,34 @@
                 <p>Zaloguj się</p>
             </button>
 
-            <!-- Miejsce na komunikat o błędzie -->
-            <p id="error-message">Wprowadź poprawne hasło!</p>
+ <!-- Miejsce na komunikat o błędzie -->
+<p id="error-message">Wprowadź poprawne hasło!</p>
 
-        <footer class="Login_footer">
-            <div class="Login_footerImages">
-                <img src="images/coi_common_ui_ic_coi_mobywatel_logo.svg" alt="Footer Image 1" style="width: 5em; height: auto;">
-                <img src="images/coi_common_ui_ic_mc_mobywatel_logo.svg" alt="Footer Image 2" style="width: 4em; height: auto;">
-            </div>
-            <p class="Login_versionText">wersja 4.41.2 (8)</p>
-        </footer>
+<footer class="Login_footer">
+    <div class="Login_footerImages">
+        <img src="images/coi_common_ui_ic_coi_mobywatel_logo.svg" alt="Footer Image 1" style="width: 5em; height: auto;">
+        <img src="images/coi_common_ui_ic_mc_mobywatel_logo.svg" alt="Footer Image 2" style="width: 4em; height: auto;">
     </div>
+    <p class="Login_versionText">wersja 4.41.2 (8)</p>
+</footer>
+</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hasło wygenerowane na serwerze
-            const correctPassword = 'Stasiek1234'; // Poprawne hasło
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Przypisanie event listener do przycisku
+        const submitButton = document.getElementById('submitButton');
+        if (submitButton) {
+            submitButton.addEventListener('click', function(event) {
+                event.preventDefault();  // Zapobiegamy odświeżeniu strony
 
-            // Przypisanie event listener do przycisku
-            const submitButton = document.getElementById('submitButton');
-            if (submitButton) {
-                submitButton.addEventListener('click', function(event) {
-                    event.preventDefault();  // Zapobiegamy odświeżeniu strony
-
-                    const userPassword = document.getElementById('passwordInput').value;
-
-                    // Sprawdzanie hasła
-                    if (!userPassword) {
-                        alert('Proszę wprowadzić hasło');
-                    } else if (userPassword === correctPassword) {
-                        window.location.href = 'home.html'; // Przekierowanie na stronę domową
-                    } else {
-                        alert('Nieprawidłowe hasło');
-                    }
-                });
-            } else {
-                console.error("Przycisk o ID 'submitButton' nie został znaleziony.");
-            }
-        });
-    </script>
+                // Niezależnie od tego, jakie hasło wpisze użytkownik, przekierowujemy go
+                window.location.href = 'home.html'; // Przekierowanie na stronę domową
+            });
+        } else {
+            console.error("Przycisk o ID 'submitButton' nie został znaleziony.");
+        }
+    });
+</script>
 
 <script>
   if ('serviceWorker' in navigator) {
