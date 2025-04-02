@@ -281,70 +281,9 @@
     </div>
 </div>
 
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamiczny QR</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-</head>
-<body>
-
-    <button id="qr-btn">Generuj kod QR</button>
-    <div id="qrcode"></div>
-    <p id="timer" style="display: none;">Odświeżenie za: <span id="countdown">30</span> sek.</p>
-
-    <script>
-        let qrDiv = document.getElementById("qrcode");
-        let countdownElement = document.getElementById("countdown");
-        let timerElement = document.getElementById("timer");
-        let countdown = 30;
-        let qr;
-        let interval;
-
-        document.getElementById("qr-btn").addEventListener("click", function () {
-            generateQRCode();
-            timerElement.style.display = "block"; // Pokazuje licznik
-            startCountdown();
-        });
-
-        function generateQRCode() {
-            let timestamp = Date.now();
-            let userData = {
-                imie: "SZYMON",
-                nazwisko: "KRZYSZTOWIAK",
-                pesel: "07220232135",
-                czas: timestamp
-            };
-
-            let encodedData = btoa(JSON.stringify(userData)); // Kodowanie Base64
-            qrDiv.innerHTML = ""; // Czyści poprzedni QR
-            qr = new QRCode(qrDiv, {
-                text: encodedData,
-                width: 200,
-                height: 200
-            });
-
-            countdown = 30;
-        }
-
-        function startCountdown() {
-            clearInterval(interval); // Resetuje poprzedni licznik
-            interval = setInterval(() => {
-                countdown--;
-                countdownElement.innerText = countdown;
-
-                if (countdown <= 0) {
-                    generateQRCode();
-                }
-            }, 1000);
-        }
-    </script>
-
-</body>
-</html>
-
+<img id="qr-btn" src="images/ai003_check_document.svg" alt="ID" width="30" height="30" style="cursor: pointer;">
+<div id="qrcode"></div>
+<p id="timer" style="display: none;">Odświeżenie za: <span id="countdown">30</span> sek.</p>
 
 
 </body></html>
