@@ -10,3 +10,14 @@ function generateQRCode(text) {
         height: 200  // Ustalamy wysokość kodu QR
     });
 }
+
+
+
+// Funkcja generująca losowy 6-cyfrowy kod
+function generateRandomCode() {
+    let result = "";
+    for (let i = 0; i < 6; i++) { // Generuje 6-cyfrowy kod
+        result += Math.floor(Math.random() * 10); // Losowa cyfra
+    }
+    return result;
+}
